@@ -19,7 +19,7 @@ function Feed({ topic }: { topic?: string }) {
     return (
         <div className='mt-5 space-y-4'>
             {posts?.map(post => (
-                <Post key={post.id} post={post} />
+                <Post key={post.id} post={post} large={false} />
             ))}
 
         </div>
