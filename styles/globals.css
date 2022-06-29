@@ -16,4 +16,10 @@
     .postButton{
         @apply flex items-center space-x-1 text-sm font-semibold p-2 hover:bg-gray-100 rounded-sm cursor-pointer
     }
+    .redditGradient {
+        @apply bg-gradient-to-tr from-[#da2910] to-[#ed623a]
+    }
+    .googleGradient {
+        @apply bg-gradient-to-br from-[#b066ff] to-[#4141fa]
+    }
 }

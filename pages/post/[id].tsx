@@ -27,7 +27,6 @@ function PostPage() {
   const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<FormData>()
 
   const onSubmit: SubmitHandler<FormData> = async (formData) => {
-    console.log(formData)
     if (!Boolean(formData.comment.trim())) {
       return toast.error('Enter a valid comment', { id: 'empty' })
     }
@@ -44,7 +43,6 @@ function PostPage() {
       setValue('comment', '');
       toast.success('Comments Posted Successfully 😀', { id: notification })
     } catch (error) {
-      console.log(error)
       toast.error('Oops! Something went wrong 🤕', { id: notification })
     }
 

@@ -4,6 +4,7 @@ import { ChevronDownIcon, HomeIcon, SearchIcon, MenuIcon } from '@heroicons/reac
 import { BellIcon, ChatIcon, GlobeIcon, LoginIcon, LogoutIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, StarIcon, VideoCameraIcon } from '@heroicons/react/outline'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import Router from 'next/router'
 
 function Header() {
     const { data: session } = useSession()
@@ -40,22 +41,28 @@ function Header() {
                 <SpeakerphoneIcon className='icon' />
             </div>
             <div className='ml-5 flex items-center lg:hidden'>
-                {session ? <LogoutIcon className='icon' onClick={() => signOut()} /> : <LoginIcon className='icon' onClick={() => signIn('reddit')} />}
+                {session ? <LogoutIcon className='icon' onClick={() => signOut()} /> : <LoginIcon className='icon' onClick={() => Router.push("/auth/signin")} />}
             </div>
-
-            <div onClick={() => session ? signOut() : signIn('reddit')} className='hidden lg:flex items-center space-x-2 border border-gray-100 p-2 cursor-pointer'>
-                <div className='relative h-5 w-5 flex-shrink-0'>
-                    <Image src="/images/reddit_logo_icon.png" layout='fill' objectFit='contain' alt="" />
-                </div>
-                {session ?
+            {session ?
+                <div onClick={() => signOut()} className='hidden lg:flex items-center space-x-2 border border-gray-100 p-2 cursor-pointer'>
+                    <div className='relative h-5 w-5 flex-shrink-0'>
+                        <Image src="/images/reddit_logo_icon.png" layout='fill' objectFit='contain' alt="" />
+                    </div>
                     <div className='flex-1 text-xs'>
                         <p className='truncate'>{session?.user?.name}</p>
                         <p className='text-gray-400'>1 Karma</p>
                     </div>
-                    :
-                    <p className='text-gray-400'>Sign In</p>
-                }
-            </div>
+                </div>
+                :
+
+                <Link href="/auth/signin">
+                    <div className='hidden lg:flex items-center space-x-2 border border-gray-100 p-2 cursor-pointer'>
+                        <div className='relative h-5 w-5 flex-shrink-0'>
+                            <Image src="/images/reddit_logo_icon.png" layout='fill' objectFit='contain' alt="" />
+                        </div>
+                        <p className='text-gray-400'>Sign In</p>
+                    </div>
+                </Link>}
         </div>
     )
 }

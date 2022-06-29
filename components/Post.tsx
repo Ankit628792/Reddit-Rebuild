@@ -36,7 +36,6 @@ function Post({ post, large }: Props) {
                 upvote: isUpvote
             }
         })
-        console.log('NEW VOTE -> ', newVote)
     }
 
     const displayVotes = (data: any) => {

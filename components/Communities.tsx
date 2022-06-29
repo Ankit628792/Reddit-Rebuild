@@ -30,7 +30,7 @@ function Communities({ topic }: { topic: string }) {
             <p className='text-base mb-1 p-4 pb-3 font-bold'>Top Communities</p>
             <div>
                 {
-                    subreddits?.map((subreddit, i) => <SubredditRow key={subreddit.id} topic={subreddit.topic} index={i} />)
+                    subreddits?.filter(item => item.topic !== topic)?.map((subreddit, i) => <SubredditRow key={subreddit.id} topic={subreddit.topic} index={i} />)
                 }
             </div>
         </div>
