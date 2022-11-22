@@ -8,6 +8,7 @@ import client from '../applloClient'
 import { Toaster } from 'react-hot-toast'
 import Router from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
+import { Session } from 'next-auth'
 
 const progress = new ProgressBar({
   size: 3,
@@ -19,7 +20,7 @@ Router.events.on('routeChangeStart', progress.start)
 Router.events.on('routeChangeComplete', progress.finish)
 Router.events.on('routeChangeError', progress.finish)
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps<{ session: Session }>) {
   return (
     <>
       <Head>
