@@ -29,7 +29,7 @@
     ],
     "start_url": "/",
     "display": "standalone",
-    "theme_color": "#fafafa",
-    "background_color": "#f22952",
+     "theme_color": "#000000",
+    "background_color": "#ffffff",
     "orientation": "portrait"
   }
