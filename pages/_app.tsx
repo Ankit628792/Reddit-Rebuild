@@ -24,7 +24,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <>
       <Head>
         <title>Reddit 2.0</title>
-        <link rel="icon" href="/images/reddit_logo_sm.svg" />
+        <link rel='icon' href="/reddit.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/reddit.png" />
+        <meta charSet="UTF-8" />
+        <meta name="description" content="Reddit 2.0 - reddit clone." />
+        <meta name="author" content="@ankit_628792" />
+        <meta name='theme-color' content='#da2910' />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
